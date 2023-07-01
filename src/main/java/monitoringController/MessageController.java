@@ -19,4 +19,11 @@ public class MessageController {
 
         return "ok";
     }
+
+    @GetMapping("/api/message/reset")
+    public String resetMessage(){
+        currentMessage.setMessage(DEFAULT_MESSAGE);
+
+        return "ok";
+    }
 }
