@@ -3,7 +3,7 @@ package monitoringController;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class DisplayMessage {
+public class MessageController {
     static final String DEFAULT_MESSAGE = "Everything operates as expected";
 
     private MonitorMessage currentMessage = new MonitorMessage(DEFAULT_MESSAGE);
@@ -11,5 +11,12 @@ public class DisplayMessage {
     @GetMapping("/api/message")
     public String getMessage(){
         return currentMessage.getMessage();
+    }
+
+    @GetMapping("/api/message/set")
+    public String setMessage(String message){
+        currentMessage.setMessage(message);
+
+        return "ok";
     }
 }
